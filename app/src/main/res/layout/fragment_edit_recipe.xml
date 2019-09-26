@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/single_recipe_background">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="4">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/edit_recipe_name"
+                android:text="Recipe Name:"
+                android:textSize="25sp"
+                android:textColor="#000000"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_recipe_name"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_recipe_time"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_recipe_servings"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="4">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:text="Ingredients:"
+                android:textSize="25sp"
+                android:textColor="#000000"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/edit_recipe_ingredients"
+                android:scrollbars="vertical"
+                android:layout_weight=".3"/>
+
+        <Button
+                android:id="@+id/edit_recipe_add_ingredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Add Ingredient"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="4">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Directions"
+                android:textSize="25sp"
+                android:textColor="#000000"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/edit_recipe_directions"
+                android:scrollbars="vertical"
+                android:layout_weight=".3"/>
+
+        <Button
+                android:id="@+id/edit_recipe_add_step"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Add Step"/>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="23dp"
+            android:paddingBottom="10dp">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_recipe_cancel"
+                android:layout_toLeftOf="@+id/edit_recipe_save"
+                android:text="Cancel"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_recipe_save"
+                android:layout_alignParentRight="true"
+                android:text="Save"/>
+    </RelativeLayout>
+</LinearLayout>

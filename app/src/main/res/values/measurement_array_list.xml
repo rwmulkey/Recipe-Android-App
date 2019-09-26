@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="measurement_array_list">
+        <item>TEASPOON</item>
+        <item>TABLESPOON</item>
+        <item>OUNCE</item>
+        <item>CUP</item>
+        <item>PINT</item>
+        <item>POUND</item>
+        <item>QUART</item>
+        <item>GALLON</item>
+
+    </string-array>
+</resources>

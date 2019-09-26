@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/Recipes"
+            android:icon="@drawable/ic_recipes_black_24dp"
+            android:title="Recipes"/>
+
+    <item
+            android:id="@+id/MealPlan"
+            android:icon="@drawable/ic_schedule_black_24dp"
+            android:title="Meal Plan"/>
+
+    <item
+            android:id="@+id/ShoppingList"
+            android:icon="@drawable/ic_shopping_list_black_24dp"
+            android:title="Shopping List"/>
+
+    <!--<item-->
+            <!--android:id="@+id/Account"-->
+            <!--android:icon="@drawable/ic_account_circle_black_24dp"-->
+            <!--android:title="Account"/>-->
+</menu>
