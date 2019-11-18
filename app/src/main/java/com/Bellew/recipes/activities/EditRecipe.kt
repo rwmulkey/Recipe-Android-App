@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,8 @@ import com.Bellew.recipes.models.Ingredients
 import com.Bellew.recipes.models.Recipe
 import com.Bellew.recipes.models.RecipeViewModel
 import kotlinx.android.synthetic.main.fragment_edit_recipe.*
+import kotlinx.android.synthetic.main.recipe_new_direction.view.*
+import kotlinx.android.synthetic.main.recipe_new_ingredient_card.view.*
 
 /*
     The EditRecipe Fragment is used for adding/updating ingredients and directions of a recipe as well as changing the
@@ -69,6 +72,7 @@ class EditRecipe : Fragment() {
     }
 
     fun saveRecipe(){
+        if(!validateRecipe()) return
         val newIngredients = ingredientAdapter.currentResults
         val newDirections = directionAdapter.currentResults
 
@@ -99,6 +103,32 @@ class EditRecipe : Fragment() {
         directionAdapter.currentResults.add(directionAdapter.currentResults.size, "N/A")
         directionAdapter.notifyItemChanged(directionAdapter.currentResults.size -1)
         edit_recipe_directions.scrollToPosition(directionAdapter.currentResults.size-1)
+    }
+
+
+    fun validateRecipe(): Boolean{
+        var isValid = true
+        for((i, ingredient) in ingredientAdapter.currentResults.withIndex()){
+            if(ingredient.amount <= 0){
+                isValid = false
+                edit_recipe_ingredients.scrollToPosition(i)
+                edit_recipe_ingredients.get(i).ingredient_amount.setError("Must not be blank")
+            }
+            if( ingredient.name.equals("N/A") ) {
+
+                isValid = false
+                edit_recipe_ingredients.scrollToPosition(i)
+                edit_recipe_ingredients.get(i).ingredient_name.setError("Must not be blank")
+            }
+        }
+        for((i, direction) in directionAdapter.currentResults.withIndex()){
+            if(direction.equals("N/A")){
+                isValid = false
+                edit_recipe_directions.scrollToPosition(i)
+                edit_recipe_directions.get(i).recipe_new_direction_step.setError("Must not be blank")
+            }
+        }
+        return isValid
     }
 
     companion object {

@@ -23,8 +23,8 @@ class RecipeNewIngredientCard(itemView: View): RecyclerView.ViewHolder(itemView)
     fun bind(ingredient: Ingredients?){
         if(ingredient != null){
             setBindings(ingredient)
-            amount.setText(ingredient.amount.toString())
-            name.setText(ingredient.name)
+            if(ingredient.amount > 0) amount.setText(ingredient.amount.toString())
+            if(!ingredient.name.equals("N/A")) name.setText(ingredient.name)
             measurement.setSelection(ingredient.measurement.arrayIndex)
             ingredientForID = ingredient.ingredientForID
         }

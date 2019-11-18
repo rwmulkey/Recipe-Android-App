@@ -18,7 +18,7 @@ class RecipeNewDirectionCard(itemView: View): RecyclerView.ViewHolder(itemView) 
         results = _result
         setBindings(stepNum)
         label.setText("Step " + (stepNum+1).toString() + ":")
-        step.setText(results[stepNum])
+        if(!_result[stepNum].equals("N/A"))step.setText(results[stepNum])
     }
 
     /*
