@@ -9,7 +9,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.example.recipes"
+        applicationId "com.Bellew.recipes"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
